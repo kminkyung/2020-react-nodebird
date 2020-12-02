@@ -30,7 +30,7 @@ const AppLayout = ({children}) => {
           {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
         </Col>
         <Col xs={24} md={12}>{children}</Col>
-        <Col xs={24} md={6}>오른쪽 메뉴</Col>
+        <Col xs={24} md={6}><a href="http://minkyung.kr" target="_blank" rel="noreferrer noopener"/></Col>
       </Row>
     </div>
   )
