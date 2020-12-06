@@ -16,17 +16,28 @@ const Signup = () => {
   const [password, onChangePassword] = useInput('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [passwordError, setPasswordError] = useState(false);
+
   const onChangePasswordCheck = useCallback((e) => {
     setPasswordCheck(e.target.value);
     setPasswordError(e.target.value !== password);
   }, [password])
+
   const [term, setTerm] = useState('');
   const [termError, setTermError] = useState('');
   const onChangeTerm = useCallback((e) => {
-    setTerm(e.target.value);
+    setTerm(e.target.checked);
     setTermError(false);
-  }, [password])
-  const onSubmit = useCallback(() => {}, [])
+  }, [term])
+
+  const onSubmit = useCallback(() => {
+    if (password !== passwordCheck) {
+      return setPasswordError(true);
+    }
+    if (!term) {
+      return setTermError(true);
+    }
+    console.log(id, nickname, password);
+  }, [password, passwordCheck, term])
 
   return (
     <AppLayout>
@@ -47,20 +58,23 @@ const Signup = () => {
         <div>
           <label htmlFor="user-password">비밀번호</label>
           <br/>
-          <Input name="user-password" value={password} onChange={onChangePassword} />
+          <Input.Password name="user-password" value={password} onChange={onChangePassword} />
         </div>
         <div>
           <label htmlFor="user-password-check">비밀번호 체크</label>
           <br/>
-          <Input name="user-password-check"
-                 type="password"
-                 value={passwordCheck}
-                 onChange={onChangePasswordCheck} />
+          <Input.Password name="user-password-check"
+                         type="password"
+                         value={passwordCheck}
+                         onChange={onChangePasswordCheck} />
         {passwordError && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
         </div>
         <div>
           <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>약관에 동의합니다.</Checkbox>
           {termError && <div style={{color: 'red'}}>약관에 동의하셔야 합니다.</div>}
+        </div>
+        <div style={{marginTop: 10}}>
+          <Button type="primary" htmlType="submit">가입하기</Button>
         </div>
       </Form>
     </AppLayout>

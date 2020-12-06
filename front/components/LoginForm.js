@@ -28,7 +28,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
       <div>
         <label htmlFor="user-password">비밀번호</label>
         <br/>
-        <Input name="user-password" type="password" value={password} onChange={onChangePassword} required />
+        <Input.Password name="user-password" type="password" value={password} onChange={onChangePassword} required />
       </div>
       <ButtonWrapper>
         <Button type="primary" htmlType="submit" loading={false}>로그인</Button>
