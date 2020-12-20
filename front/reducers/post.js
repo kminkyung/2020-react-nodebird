@@ -11,9 +11,9 @@ export const initialState = {
     }, {
       src: 'https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568697779/noticon/guv0uqiehnuzftlg4ifr.gif'
     },
-    //   {
-    //   src: 'https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603261622/noticon/hn81l3ow7lkmtk1wpmtz.gif'
-    // }
+      {
+      src: 'https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603261622/noticon/hn81l3ow7lkmtk1wpmtz.gif'
+    }
     ],
     Comments: [{
       User: {
