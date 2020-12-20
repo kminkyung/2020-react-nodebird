@@ -15,9 +15,9 @@ export const initialState = {
     }],
     Comments: [{
       User: {
-        nickname: '',
+        nickname: 'user1',
       },
-      content: ''
+      content: 'comment test'
     }]
   }],
   imagePaths: [],
